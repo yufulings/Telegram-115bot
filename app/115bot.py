@@ -26,7 +26,7 @@ from app.handlers.rss_handler import register_rss_handlers
 
 
 def get_version(md_format=False):
-    version = "v3.3.5"
+    version = "v3.3.6"
     if md_format:
         return escape_markdown(version, version=2)
     return version
@@ -237,6 +237,8 @@ if __name__ == '__main__':
     register_sync_handlers(application)
     # 注册视频
     register_video_handlers(application)
+    
+    init.logger.info(f"USER_AGENT: {init.USER_AGENT}")
 
     # 启动机器人轮询
     try:
